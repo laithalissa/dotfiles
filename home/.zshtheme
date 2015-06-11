@@ -1,0 +1,9 @@
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MODE='awesome-fontconfig'
+# POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir aws_prompt_info kubecontext virtualenv vcs)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir aws kubecontext virtualenv vcs)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=terraform
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+#ZSH_THEME=powerlevel9k/powerlevel9k
+ZSH_THEME=powerlevel10k/powerlevel10k

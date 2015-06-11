@@ -1,0 +1,2 @@
+# Secret API keys, we don't want github to see these ;)
+**/.secrets

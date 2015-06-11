@@ -1,0 +1,25 @@
+# Source a file if it exists
+include () {
+  [[ -f "$1" ]] && source "$1"
+}
+
+# Load Laithisms
+include "$DOTFILES/.aliases"
+
+# Nasty fat hobbitsis keeps his secret keys here
+include "$DOTFILES/.secrets"
+
+# Colorize maven
+include "$SCRIPTS/colourise-mvn"
+
+# Util function
+include "$SCRIPTS/functions/source-me"
+
+# Docker wrapped tools
+include "$CODE/docker/source-me"
+
+# This should give us WORK_NAMESPACE
+include ~/.env_namespace
+include "$WORK_NAMESPACE/source-me"
+
+PATH="$PATH:/Users/laithal/.Pokemon-Terminal"

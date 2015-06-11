@@ -1,0 +1,65 @@
+#!/bin/bash
+### Tmux ###
+# Create a new tmux session
+#alias tmux='tmux -2'
+#alias tmux='~/bin/tmux -2'
+
+# TODO: check if linux
+# if [[ $(which open 2>/dev/null) != 0 ]]; then
+#   if [[ $(which xdg-open) != 0 ]]; then
+#     alias open=xdg-open
+#   fi
+# fi
+
+### Clipboard cli on linux
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
+
+##
+command -v kubecolor >/dev/null && alias kubectl=kubecolor
+compdef kubecolor=kubectl
+
+# Disable to reduce startup time when using mobaxterm
+# alias vim=vimx
+
+### Utils ###
+# Find a file within the current directory
+alias ff='find . -iname'
+
+# Useful for debugging dependency issues
+alias freeze-mvn="mvn -o dependency:list |\
+  grep \":.*:.*:.*\" |\
+  cut -d] -f2- |\
+  sed 's/:[a-z]*$//g' |\
+  sort -u
+"
+
+# Git
+alias grhom='git reset --hard origin/master'
+
+###    Docker
+#       ":"
+#     ___:____     |"\/"|
+#   ,'        `.    \  /
+#   |  O        \___/  |
+# ~^~^~^~^~^~^~^~^~^~^~^~^~
+alias d=docker
+alias dp='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Ports}}"'
+alias d-c=docker-compose
+alias dcdul='d-c down && d-c up -d && d-c logs -f'
+alias dcupd='d-c up -d'
+
+# Terraform
+alias tf=terraform
+
+# zshmarks - Fast navigation
+alias j=jump
+
+### Fun stuff ###
+# Sometimes it's nice for somebody to answer you
+alias wtf="echo 'INDEED!'"
+alias fml="echo 'INDEED!'"
+
+# This allows watch to work with aliases :D
+alias watch="watch "
+alias watch1="watch -n1 "

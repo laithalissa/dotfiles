@@ -1,0 +1,27 @@
+# Thrift
+--type-set=thrift:ext:thrift
+# JSX - react
+--type-set=jsx:ext:jsx
+
+--type-set=yml:ext:yaml,yml
+# Puppet
+--type-set=pp:ext:pp
+# Ruby templates
+--type-set=erb:ext:erb
+# Ruby
+--type-set=erb:ext:rb
+
+# Log files
+--type-set=log:ext:log
+# Hocon
+--type-set=conf:ext:conf
+
+# Markdowns
+--type-set=html:ext:html
+# Sass
+--type-set=scss:ext:scss
+# Conf/hocon
+--type-set=conf:ext:conf
+--type-set=hocon:ext:conf
+# Terraform
+--type-set=terraform:ext:tf

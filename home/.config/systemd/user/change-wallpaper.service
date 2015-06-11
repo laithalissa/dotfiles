@@ -1,0 +1,11 @@
+[Unit]
+Description=Wallpaper changer
+
+[Service]
+WorkingDirectory=/home/laith
+Environment=DISPLAY=:0
+ExecStart=/bin/bash -c '/usr/bin/feh -r --randomize --bg-fill /home/laith/Pictures/wallpapers'
+User=laith
+
+[Install]
+WantedBy=default.target
