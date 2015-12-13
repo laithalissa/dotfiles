@@ -1,0 +1,24 @@
+#!/bin/bash
+### Lazyness enablers
+
+# Change to the Code directory
+alias code=cd ~/Code
+
+# Create a new tmux session
+alias new='tmux new -s'
+
+# Attach to a tmux session
+alias att="tmux attach -t"
+
+# Find a file from where we are
+alias ff='find . -iname'
+
+alias freeze-mvn="mvn -o dependency:list |\
+  grep \":.*:.*:.*\" |\
+  cut -d] -f2- |\
+  sed 's/:[a-z]*$//g' |\
+  sort -u
+"
+
+alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
+alias wtf="echo 'INDEED!'"

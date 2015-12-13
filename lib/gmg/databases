@@ -1,0 +1,7 @@
+#!/bin/bash
+export GMG_COUCHDB_NAME_USERS=shop_db
+export GMG_COUCHDB_NAME_BOXES=shop_db
+export GMG_COUCHDB_NAME_GAMES=shop_db
+export GMG_COUCHDB_NAME_ORDERS=shop_db
+export GMG_COUCHDB_NAME_BASKETS=shop_db
+export GMG_COUCHDB_NAME_DELIVERIES=shop_db

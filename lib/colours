@@ -1,0 +1,10 @@
+# Useful colour aliases to prettify things
+export green="0;32m"
+export blue="0;34m"
+export purple="0;35m"
+export nc='0m'
+export color_p='\x1B['
+export GREEN=$color_p$green
+export BLUE=$color_p$blue
+export PURPLE=$color_p$purple
+export NC=$color_p$nc

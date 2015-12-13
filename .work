@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Use the `JOB_NAMESPACE` env var to find the directory where
+# `current job` related source files live under the lib directory.
+#
+# For example, setting
+#
+# JOB_NAMESPACE=`cowfarm`
+#
+# will source each file in
+# the $DOTFILES/lib/cowfarm/ directory
+if [[ -z $JOB_NAMESPACE ]] then
+  return
+fi
+
+sources_dir="$DOTFILES/lib/$JOB_NAMESPACE"
+if [[ ! -d $sources_dir ]] then
+  return
+fi
+
+for file in `ls -A "$sources_dir"`; do
+  . "$DOTFILES/lib/$JOB_NAMESPACE/$file";
+done;

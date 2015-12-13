@@ -78,9 +78,6 @@ nmap <leader>ne :NERDTreeToggle<cr>
 set wildmode=longest,list,full
 set wildmenu
 
-"set smartindent
-"set smarttab
-
 set tabstop=2
 set shiftwidth=2
 
@@ -96,6 +93,8 @@ set mouse=a
 " Commit message guidelines
 au FileType gitcommit set tw=72
 au FileType gitcommit set cc=50
+au FileType gitcommit set spell
+
 " Scala margin
 au FileType scala set cc=100
 
@@ -110,5 +109,4 @@ set hidden
 " Colorscheme
 let &t_Co=256
 colorscheme molokai
-set transp=5
-
+set transp=12

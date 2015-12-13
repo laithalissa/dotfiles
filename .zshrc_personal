@@ -1,31 +1,29 @@
-# Source the gmg_vars script automatically
+export DOTFILES="$HOME/dotfiles"
+export SCRIPTS="$HOME/scripts"
+# Source the gmg_vars script to get service env vars
 . ~/Code/fabric/gmg_vars.sh
-. ~/scripts/mvn_config
-export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home" 
-export PATH=$PATH:~/bin:~/Dev/scripts
-export AWS_ACCESS_KEY_ID="AKIAI7QBR7R62SHH2B2A"
-export AWS_SECRET_ACCESS_KEY="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"
 
-#export green="0;32m"
-#export blue="0;34m"
-#export purple="0;35m"
-#export nc='0m'
-#export color_p='\x1B['
-#export GREEN=$color_p$green
-#export BLUE=$color_p$blue
-#export PURPLE=$color_p$purple
-#export NC=$color_p$nc
+# Load Laithisms
+. "$DOTFILES/.aliases"
 
-alias c=cd ~/Code
-alias new='tmux new -s'
-alias att="tmux attach -t"
-alias runshop='./manage.py gmg_runserver --settings=settings_gosiadev -i=stockcontrol,cloudnine,archer,keystone,vouchersafe'
-alias portps='sudo lsof -i'
-alias pg='ps aux | grep'
-alias escurl="curl -XGET 'http://localhost:9200/cubits/cubits/_search' -d"
-alias ff='find . -iname'
-alias grepi='grep -i'
-alias acki='ack -i'
-alias sbtDev="./sbt 'run -f config/development.scala'"
-alias celery='./manage.py celery worker -E -c 1 -Q order_1_5_1,email_1_5_1,batch_1_5_1,celery_1_5_1 --loglevel=INFO --logfile=~/Code/logs/celery-order.log --settings=settings_laithdev'
+# Nasty fat hobitsis keeps his secret keys here
+. "$DOTFILES/.secrets"
+
+# Colorize maven
+. "$SCRIPTS/colourise_mvn"
+
+# Work files are sourced from .work, at preset it sets
+# A $JOB_NAMESPACE env var is used to find the directory
+# containing files which need to be sourced
+export JOB_NAMESPACE='gmg'
+# Okay, so now souce the work script to load in work specific scripts
+. "$DOTFILES/.work"
+
+export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+export PATH=$PATH:$SCRIPTS
+
+# AWS keys for scaldoge
+export_aws
+
+# We're probably going to want to start off in Code
 cd ~/Code
