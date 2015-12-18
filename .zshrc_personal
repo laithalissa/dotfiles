@@ -10,17 +10,18 @@ export SCRIPTS="$HOME/scripts"
 . "$DOTFILES/.secrets"
 
 # Colorize maven
-. "$SCRIPTS/colourise_mvn"
+. "$SCRIPTS/colourise-mvn"
 
-# Work files are sourced from .work, at preset it sets
 # A $JOB_NAMESPACE env var is used to find the directory
-# containing files which need to be sourced
-export JOB_NAMESPACE='gmg'
-# Okay, so now souce the work script to load in work specific scripts
+# containing files which need to be sourced for work
+export WORK_NAMESPACE='gmg'
+# Now source the work script to load in work specific scripts
 . "$DOTFILES/.work"
 
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 export PATH=$PATH:$SCRIPTS
+# Stops annoying dock icons popping up when running mvn stuff
+export MAVEN_OPTS='-Djava.awt.headless=true'
 
 # AWS keys for scaldoge
 export_aws

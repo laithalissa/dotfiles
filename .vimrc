@@ -11,22 +11,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'solarnz/thrift.vim'
-Plugin 'klen/python-mode' "Needs work
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'bling/vim-airline'
-"Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tomasr/molokai'
-Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/powerline'
 Plugin 'docunext/closetag.vim'
-"Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
 Plugin 'AutoClose'
+" Highlight trailing whitepsace
+Bundle 'ntpeters/vim-better-whitespace'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -68,7 +65,12 @@ if has("gui_running")
   endif
 endif
 
+" Colorscheme
+let &t_Co=256
+colorscheme molokai
+set transp=12
 syntax on
+
 set number
 set hlsearch
 let mapleader = ","
@@ -80,11 +82,6 @@ set wildmenu
 
 set tabstop=2
 set shiftwidth=2
-
-"4 spaces per indent in python
-au FileType python set tabstop=4
-au FileType python set shiftwidth=4
-
 set expandtab
 set ignorecase
 set smartcase
@@ -98,6 +95,10 @@ au FileType gitcommit set spell
 " Scala margin
 au FileType scala set cc=100
 
+"4 spaces per indent in python
+au FileType python set tabstop=4
+au FileType python set shiftwidth=4
+
 " Golang syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -105,8 +106,3 @@ let g:go_highlight_structs = 1
 syntax on
 
 set hidden
-
-" Colorscheme
-let &t_Co=256
-colorscheme molokai
-set transp=12

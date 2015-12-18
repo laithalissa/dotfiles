@@ -13,6 +13,7 @@ alias att="tmux attach -t"
 # Find a file from where we are
 alias ff='find . -iname'
 
+# Useful for debugging dependency issues
 alias freeze-mvn="mvn -o dependency:list |\
   grep \":.*:.*:.*\" |\
   cut -d] -f2- |\
@@ -21,4 +22,6 @@ alias freeze-mvn="mvn -o dependency:list |\
 "
 
 alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
+
+# Sometimes it's nice for somebody to answer you
 alias wtf="echo 'INDEED!'"

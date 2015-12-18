@@ -1,7 +1,9 @@
 #!/bin/bash
-export GMG_COUCHDB_NAME_USERS=shop_db
-export GMG_COUCHDB_NAME_BOXES=shop_db
-export GMG_COUCHDB_NAME_GAMES=shop_db
-export GMG_COUCHDB_NAME_ORDERS=shop_db
-export GMG_COUCHDB_NAME_BASKETS=shop_db
-export GMG_COUCHDB_NAME_DELIVERIES=shop_db
+#
+# Set Couch database names in the environment
+export GMG_COUCHDB_NAME_BASKETS=greenmangaming_baskets
+export GMG_COUCHDB_NAME_BOXES=greenmangaming_boxes
+export GMG_COUCHDB_NAME_DELIVERIES=greenmangaming_deliveries
+export GMG_COUCHDB_NAME_GAMES=greenmangaming_games
+export GMG_COUCHDB_NAME_ORDERS=greenmangaming_orders
+export GMG_COUCHDB_NAME_USERS=greenmangaming_users

@@ -1,7 +1,9 @@
 #!/bin/bash
 #
 # Use the `JOB_NAMESPACE` env var to find the directory where
-# `current job` related source files live under the lib directory.
+# `current work` related source files live, within the
+#   $DOT_FILES/lib
+# directory.
 #
 # For example, setting
 #
@@ -9,15 +11,21 @@
 #
 # will source each file in
 # the $DOTFILES/lib/cowfarm/ directory
-if [[ -z $JOB_NAMESPACE ]] then
+#
+# HIDDEN FILES ARE IGNORED
+if [[ -z $WORK_NAMESPACE ]]; then
   return
 fi
 
-sources_dir="$DOTFILES/lib/$JOB_NAMESPACE"
-if [[ ! -d $sources_dir ]] then
+if [[ -z $DOTFILES ]]; then
   return
 fi
 
-for file in `ls -A "$sources_dir"`; do
-  . "$DOTFILES/lib/$JOB_NAMESPACE/$file";
+sources_dir="$DOTFILES/lib/$WORK_NAMESPACE"
+if [[ ! -d $sources_dir ]]; then
+  return
+fi
+
+for file in `ls "$sources_dir"`; do
+  . "$DOTFILES/lib/$WORK_NAMESPACE/$file";
 done;

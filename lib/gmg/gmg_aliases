@@ -1,12 +1,18 @@
-### Extra things for gmg work
+#!/bin/bash
+### Extra things specific to GMG
+
+# Run all celery queues for shop
 alias celery='./manage.py celery worker -E -c 1 -Q order_1_5_1,email_1_5_1,batch_1_5_1,celery_1_5_1 --loglevel=INFO --logfile=~/Code/logs/celery-order.log --settings=settings_laithdev'
 
+# export aws keys so that we can vomit into the scalodge bucket
 alias export_aws="source $DOTFILES/.secrets && export AWS_ACCESS_KEY_ID && export AWS_SECRET_ACCESS_KEY"
 
-# Cloudant sucks! Use local couch
+# Cloudant sucks! Set the couch db port to local couch
 export GMG_COUCHDB_PORT=$GMG_COUCHDB_LOCAL_PORT
 
+# Don't spam my shop database with horus tests
 export HORUS_DB_NAME=shop_db
 export HORUS_TEST_DB_NAME=test_horus
 
+# Can't remember the reason for this, but this is a better home for java
 alias fix_java=`export JAVA_HOME=/Library/Java/Home`
