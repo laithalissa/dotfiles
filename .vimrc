@@ -9,21 +9,43 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
+"> Language support
 Bundle 'derekwyatt/vim-scala'
 Bundle 'solarnz/thrift.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
+Plugin 'fatih/vim-go'
+
+"> Styling
+""Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tomasr/molokai'
-Plugin 'Lokaltog/powerline'
-Plugin 'docunext/closetag.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'fatih/vim-go'
-Plugin 'AutoClose'
+
 " Highlight trailing whitepsace
 Bundle 'ntpeters/vim-better-whitespace'
+
+"> Helpful things
+"Closes html/xml tags
+Plugin 'docunext/closetag.vim'
+
+"> Menus
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+
+"> Experimental
+"  This section is just for things I'm playing with, if I like them I'll sort
+"  them into one of the sections above.
+
+" Multiple cursors, like in sublime text
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+
+" Better session saving
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -65,25 +87,33 @@ if has("gui_running")
   endif
 endif
 
+" Set the <leader> key to ,
+let mapleader = ","
+
 " Colorscheme
 let &t_Co=256
 colorscheme molokai
 set transp=12
 syntax on
 
+" Show line numbers
 set number
+" Highlight all search matches- also prevents jumping when using #
 set hlsearch
-let mapleader = ","
-nmap <leader>ne :NERDTreeToggle<cr>
+" Case sensitive search should be off by default
+set ignorecase
 
-" Wildmode mene (tab completion)"
-set wildmode=longest,list,full
+" Toggle nerdtree with ,ne
+nmap <leader>ne :NERDTreeToggle<cr>
+" Switch off highlighting search results with ,nh
+nmap <leader>nh :nohlsearch<cr>
+
+" Wildmode menu (tab completion)"
 set wildmenu
 
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set ignorecase
 set smartcase
 set mouse=a
 
@@ -92,17 +122,23 @@ au FileType gitcommit set tw=72
 au FileType gitcommit set cc=50
 au FileType gitcommit set spell
 
-" Scala margin
+" Scala - set margin to 100 characters
 au FileType scala set cc=100
 
-"4 spaces per indent in python
+" Python - set 4 spaces per indent.
 au FileType python set tabstop=4
 au FileType python set shiftwidth=4
+au FileType python set cc=80
 
-" Golang syntax highlighting
+" Golang - syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+
+" JavaScript - Run jshint on save
+let g:syntastic_jshint_exec='/opt/boxen/nodenv/shims/jshint'
+let jshint2_save = 1
+
 syntax on
 
 set hidden
