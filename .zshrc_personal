@@ -26,5 +26,8 @@ export MAVEN_OPTS='-Djava.awt.headless=true'
 # AWS keys for scaldoge
 export_aws
 
+# Dockerify the session
+eval "$(docker-machine env default)"
+
 # We're probably going to want to start off in Code
 cd ~/Code
