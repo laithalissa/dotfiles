@@ -20,8 +20,8 @@ alias freeze-mvn="mvn -o dependency:list |\
   sed 's/:[a-z]*$//g' |\
   sort -u
 "
-
-alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
-
 # Sometimes it's nice for somebody to answer you
 alias wtf="echo 'INDEED!'"
+
+# Stick a uuid on my clipboard
+alias uuid-me="uuid | pbcopy"
