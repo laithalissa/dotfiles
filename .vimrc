@@ -16,11 +16,17 @@ Bundle 'solarnz/thrift.vim'
 Plugin 'fatih/vim-go'
 
 "> Styling
-""Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
+" Git changes in gutter
 Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
+
+" Indent guides
+Plugin 'Yggdroot/indentLine'
+
+" Sublime-text theme
 Plugin 'tomasr/molokai'
 
 " Highlight trailing whitepsace
@@ -45,6 +51,15 @@ Plugin 'tpope/vim-surround'
 " Better session saving
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+
+" CtrlP - fuzzy buffers/file menus
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Easily split method definitions across lines
+Plugin 'andrewradev/splitjoin.vim'
+
+"Python mode?
+Plugin 'klen/python-mode'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -93,9 +108,11 @@ let mapleader = ","
 " Colorscheme
 let &t_Co=256
 colorscheme molokai
-set transp=12
 syntax on
 
+" Remove scrollbars
+set guioptions-=r
+set guioptions-=L
 " Show line numbers
 set number
 " Highlight all search matches- also prevents jumping when using #
@@ -108,11 +125,17 @@ nmap <leader>ne :NERDTreeToggle<cr>
 " Switch off highlighting search results with ,nh
 nmap <leader>nh :nohlsearch<cr>
 
+" Close buffers easily with cb (requires the Bclose plugin)
+nmap <leader>bc :Bclose<cr>
+
 " Wildmode menu (tab completion)"
 set wildmenu
 
+" show existing tab with 4 spaces width
 set tabstop=2
+" when indenting with '>', use 4 spaces width
 set shiftwidth=2
+set softtabstop=2
 set expandtab
 set smartcase
 set mouse=a
@@ -139,6 +162,18 @@ let g:go_highlight_structs = 1
 let g:syntastic_jshint_exec='/opt/boxen/nodenv/shims/jshint'
 let jshint2_save = 1
 
+" Don't show pyc files in nerdtree
+let NERDTreeIgnore = ['\.pyc$']
+
 syntax on
 
 set hidden
+
+"" Experimental
+"folding settings
+"set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+"au BufWinLeave * mkview
+"au BufWinEnter * silent loadview
