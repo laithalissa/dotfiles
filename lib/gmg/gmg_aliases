@@ -16,3 +16,5 @@ export HORUS_TEST_DB_NAME=test_horus
 
 # Can't remember the reason for this, but this is a better home for java
 alias fix_java=`export JAVA_HOME=/Library/Java/Home`
+
+alias docker-me-up="bash --login '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'"
