@@ -2,7 +2,7 @@
 ### Extra things specific to GMG
 
 # Run all celery queues for shop
-alias celery='./manage.py celery worker -E -c 1 -Q order_1_5_1,email_1_5_1,batch_1_5_1,celery_1_5_1 --loglevel=INFO --logfile=~/Code/logs/celery-order.log --settings=settings_laithdev'
+alias celery='./manage.py celery worker -E -c 1 -Q order_1_5_1,email_1_5_1,batch_1_5_1,celery_1_5_1,quarry --loglevel=INFO --logfile=~/Code/logs/celery-order.log --settings=settings_laithdev'
 
 # export aws keys so that we can vomit into the scalodge bucket
 alias export_aws="source $DOTFILES/.secrets && export AWS_ACCESS_KEY_ID && export AWS_SECRET_ACCESS_KEY"
