@@ -18,8 +18,9 @@ Plugin 'fatih/vim-go'
 "> Styling
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'Lokaltog/vim-powerline'
-Plugin 'altercation/vim-colors-solarized'
+set laststatus=2
+
+"Plugin 'altercation/vim-colors-solarized'
 " Git changes in gutter
 Plugin 'airblade/vim-gitgutter'
 
@@ -28,6 +29,8 @@ Plugin 'Yggdroot/indentLine'
 
 " Sublime-text theme
 Plugin 'tomasr/molokai'
+" Another color scheme
+Bundle 'roosta/srcery'
 
 " Highlight trailing whitepsace
 Bundle 'ntpeters/vim-better-whitespace'
@@ -36,21 +39,22 @@ Bundle 'ntpeters/vim-better-whitespace'
 "Closes html/xml tags
 Plugin 'docunext/closetag.vim'
 
-"> Menus
+"> Fast commenting
 Plugin 'scrooloose/nerdcommenter'
+"> Menus
 Plugin 'scrooloose/nerdtree'
 
-"> Experimental
-"  This section is just for things I'm playing with, if I like them I'll sort
-"  them into one of the sections above.
+"> Better session saving
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " Multiple cursors, like in sublime text
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 
-" Better session saving
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
+"> Experimental
+"  This section is just for things I'm playing with, if I like them I'll sort
+"  them into one of the sections above.
 
 " CtrlP - fuzzy buffers/file menus
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -58,24 +62,15 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Easily split method definitions across lines
 Plugin 'andrewradev/splitjoin.vim'
 
+" PEP8 indenting
+Plugin 'hynek/vim-python-pep8-indent'
 "Python mode?
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
+" Autoclose the scratch window which opens to show you documentation
+"autocmd CompleteDone * pclose
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+" Switch between relative and natural numbering more easily
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -177,3 +172,6 @@ set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 "au BufWinLeave * mkview
 "au BufWinEnter * silent loadview
+
+" Highlight the current cursor line
+:set cursorline
