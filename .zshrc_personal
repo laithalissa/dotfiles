@@ -18,8 +18,10 @@ export WORK_NAMESPACE='gmg'
 # Now source the work script to load in work specific scripts
 . "$DOTFILES/.work"
 
+export PYTHONPATH=`brew --prefix`/Cellar/python/2.7.3-boxen2
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 export PATH=$PATH:$SCRIPTS
+export PATH=$PATH:`$SCRIPTS/get-paths`
 # Stops annoying dock icons popping up when running mvn stuff
 export MAVEN_OPTS='-Djava.awt.headless=true'
 
