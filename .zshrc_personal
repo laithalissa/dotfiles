@@ -1,5 +1,4 @@
-export DOTFILES="$HOME/dotfiles"
-export SCRIPTS="$HOME/scripts"
+# See ~/.zshenv for env var definitions
 # Source the gmg_vars script to get service env vars
 . ~/Code/fabric/gmg_vars.sh
 
@@ -20,8 +19,6 @@ export WORK_NAMESPACE='gmg'
 
 export PYTHONPATH=`brew --prefix`/Cellar/python/2.7.3-boxen2
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-export PATH=$PATH:$SCRIPTS
-export PATH=$PATH:`$SCRIPTS/get-paths`
 # Stops annoying dock icons popping up when running mvn stuff
 export MAVEN_OPTS='-Djava.awt.headless=true'
 
