@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'solarnz/thrift.vim'
 Plugin 'fatih/vim-go'
+Plugin 'pangloss/vim-javascript'
 
 "> Styling
 Plugin 'bling/vim-airline'
@@ -29,7 +30,8 @@ Plugin 'Yggdroot/indentLine'
 
 " Sublime-text theme
 Plugin 'tomasr/molokai'
-" Another color scheme
+" Other colour schemes
+Plugin 'jacoborus/tender'
 Bundle 'roosta/srcery'
 
 " Highlight trailing whitepsace
@@ -72,6 +74,9 @@ Plugin 'hynek/vim-python-pep8-indent'
 " Switch between relative and natural numbering more easily
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
+" Don't jump to the next search when "*" is pressed
+Plugin 'bronson/vim-visual-star-search'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -100,11 +105,16 @@ endif
 " Set the <leader> key to ,
 let mapleader = ","
 
+" Load the zsh environment - (TODO: borks terminal vim?)
+set shell=zsh\ -i
+
 " Colorscheme
 let &t_Co=256
-colorscheme molokai
+colorscheme srcery
 syntax on
 
+" Highlight the current cursor line
+set cursorline
 " Remove scrollbars
 set guioptions-=r
 set guioptions-=L
@@ -117,21 +127,26 @@ set ignorecase
 
 " Toggle nerdtree with ,ne
 nmap <leader>ne :NERDTreeToggle<cr>
-" Switch off highlighting search results with ,nh
-nmap <leader>nh :nohlsearch<cr>
+" Redraw the screen without search highlighting
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Close buffers easily with cb (requires the Bclose plugin)
 nmap <leader>bc :Bclose<cr>
 
+" Quick comment with C-q or Cmd-/
+nmap <C-q> <leader>c<space>
+map <D-/> <leader>c<space>
+
 " Wildmode menu (tab completion)"
 set wildmenu
+set wildmode=list:longest,full
 
 " show existing tab with 4 spaces width
 set tabstop=2
 " when indenting with '>', use 4 spaces width
+set expandtab
 set shiftwidth=2
 set softtabstop=2
-set expandtab
 set smartcase
 set mouse=a
 
@@ -153,25 +168,26 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
-" JavaScript - Run jshint on save
-let g:syntastic_jshint_exec='/opt/boxen/nodenv/shims/jshint'
-let jshint2_save = 1
-
 " Don't show pyc files in nerdtree
 let NERDTreeIgnore = ['\.pyc$']
-
-syntax on
 
 set hidden
 
 "" Experimental
 "folding settings
-"set foldmethod=indent   "fold based on indent
+set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
-"au BufWinLeave * mkview
-"au BufWinEnter * silent loadview
+nnoremap <space> za
+vnoremap <space> zf
 
-" Highlight the current cursor line
-:set cursorline
+set autoindent
+
+" Auto refresh unmodified files when they change outside of vim
+set autoread
+
+" JavaScript - Run jshint on save
+" TODO: I think this actually requires syntastic :P
+let g:syntastic_jshint_exec='/opt/boxen/nodenv/shims/jshint'
+let jshint2_save = 1

@@ -29,6 +29,3 @@ export_aws
 eval "$(docker-machine env default)"
 # `fuck` will attempt to correct the last command
 eval $(thefuck --alias)
-
-# We're probably going to want to start off in Code
-cd ~/Code
