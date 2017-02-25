@@ -11,6 +11,12 @@
 # Colorize maven
 . "$SCRIPTS/colourise-mvn"
 
+# Util function
+. "$SCRIPTS/functions/source-me"
+
+# Docker wrapped tools
+. ~/Code/docker/source-me
+
 # A $JOB_NAMESPACE env var is used to find the directory
 # containing files which need to be sourced for work
 export WORK_NAMESPACE='gmg'
