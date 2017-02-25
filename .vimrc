@@ -33,6 +33,7 @@ Plugin 'tomasr/molokai'
 " Other colour schemes
 Plugin 'jacoborus/tender'
 Bundle 'roosta/srcery'
+Plugin 'laithalissa/vim-luna'
 
 " Highlight trailing whitepsace
 Bundle 'ntpeters/vim-better-whitespace'
@@ -60,12 +61,16 @@ Plugin 'tpope/vim-surround'
 
 " CtrlP - fuzzy buffers/file menus
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'd11wtq/ctrlp_bdelete.vim'
 
 " Easily split method definitions across lines
 Plugin 'andrewradev/splitjoin.vim'
 
 " PEP8 indenting
 Plugin 'hynek/vim-python-pep8-indent'
+
+" Flake8
+Plugin 'nvie/vim-flake8'
 "Python mode?
 "Plugin 'klen/python-mode'
 " Autoclose the scratch window which opens to show you documentation
@@ -76,6 +81,9 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Don't jump to the next search when "*" is pressed
 Plugin 'bronson/vim-visual-star-search'
+
+"Experimental
+Plugin 'davidbeckingsale/writegood.vim'"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,11 +114,11 @@ endif
 let mapleader = ","
 
 " Load the zsh environment - (TODO: borks terminal vim?)
-set shell=zsh\ -i
+"set shell=zsh\ -i
 
 " Colorscheme
 let &t_Co=256
-colorscheme srcery
+colorscheme luna
 syntax on
 
 " Highlight the current cursor line
@@ -118,6 +126,10 @@ set cursorline
 " Remove scrollbars
 set guioptions-=r
 set guioptions-=L
+" Color for the character limit bar
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" Turn off tildes for blank lines
+hi NonText guifg=bg
 " Show line numbers
 set number
 " Highlight all search matches- also prevents jumping when using #
@@ -173,6 +185,9 @@ let NERDTreeIgnore = ['\.pyc$']
 
 set hidden
 
+""" Explicit plugin initialisation
+call ctrlp_bdelete#init()
+
 "" Experimental
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -191,3 +206,16 @@ set autoread
 " TODO: I think this actually requires syntastic :P
 let g:syntastic_jshint_exec='/opt/boxen/nodenv/shims/jshint'
 let jshint2_save = 1
+" Shouldn't need this!!
+au FileType javascript set tabstop=2
+au FileType javascript set shiftwidth=2
+" Don't jump when I hit hash to show search matches
+nnoremap * :keepjumps normal! mi*`i<CR>
+nnoremap # :keepjumps normal! mi#`i<CR>
+
+" Make json pretty when you're not in insert mode
+au InsertEnter *.json set conceallevel=0
+au InsertLeave *.json set conceallevel=2
+
+" Nicer higlighting
+hi Visual  guifg=NONE guibg=#411f7f gui=none ctermbg=none
