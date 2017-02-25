@@ -21,11 +21,11 @@ if [[ -z $DOTFILES ]]; then
   return
 fi
 
-sources_dir="$DOTFILES/lib/$WORK_NAMESPACE"
+sources_dir="$DOTFILES/lib/$WORK_NAMESPACE/sources"
 if [[ ! -d $sources_dir ]]; then
   return
 fi
 
-for file in `ls "$sources_dir"`; do
-  . "$DOTFILES/lib/$WORK_NAMESPACE/$file";
+for file in "$sources_dir"/*; do
+  . "$file"
 done;
