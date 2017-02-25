@@ -1,5 +1,0 @@
-
-alias docker-port-rules='VBoxManage showvminfo default | grep Rule | grep -v ssh'
-alias docker-me-up="bash --login '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'"
-alias d=docker
-alias dco=docker-compose
