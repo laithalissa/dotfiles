@@ -21,19 +21,21 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 set laststatus=2
 
+" Nicer startscreen
+Plugin 'mhinz/vim-startify'
+
 "Plugin 'altercation/vim-colors-solarized'
 " Git changes in gutter
 Plugin 'airblade/vim-gitgutter'
 
-" Indent guides
-Plugin 'Yggdroot/indentLine'
+" Indent guides - I had to turn this off because of performance issues
+"Plugin 'Yggdroot/indentLine'
 
 " Sublime-text theme
 Plugin 'tomasr/molokai'
 " Other colour schemes
-Plugin 'jacoborus/tender'
-Bundle 'roosta/srcery'
-Plugin 'laithalissa/vim-luna'
+"Plugin 'laithalissa/vim-luna'
+Plugin 'joshdick/onedark.vim'
 
 " Highlight trailing whitepsace
 Bundle 'ntpeters/vim-better-whitespace'
@@ -84,6 +86,8 @@ Plugin 'bronson/vim-visual-star-search'
 
 "Experimental
 Plugin 'davidbeckingsale/writegood.vim'"
+" Vertically aligning text
+Plugin 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -118,8 +122,17 @@ let mapleader = ","
 
 " Colorscheme
 let &t_Co=256
-colorscheme luna
+"colorscheme luna
+colorscheme onedark
 syntax on
+
+" Config for onedark
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " Highlight the current cursor line
 set cursorline
@@ -218,4 +231,4 @@ au InsertEnter *.json set conceallevel=0
 au InsertLeave *.json set conceallevel=2
 
 " Nicer higlighting
-hi Visual  guifg=NONE guibg=#411f7f gui=none ctermbg=none
+hi Visual  guifg=NONE guibg=#411f7f gui=none ctermbg=91
