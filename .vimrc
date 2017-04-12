@@ -240,3 +240,6 @@ hi Visual  guifg=NONE guibg=#411f7f gui=none ctermbg=91
 
 " Disable warning for swap files
 set shortmess+=A
+
+" Highlight as you type the search!
+set incsearch
