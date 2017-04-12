@@ -1,16 +1,12 @@
 #!/bin/bash
-### Lazyness enablers
-
-# Change to the Code directory
-alias code=cd ~/Code
-
+### Tmux ###
 # Create a new tmux session
-alias new='tmux new -s'
-
+alias tnew='tmux new -s'
 # Attach to a tmux session
-alias att="tmux attach -t"
+alias tatt="tmux attach -t"
 
-# Find a file from where we are
+### Utils ###
+# Find a file within the current directory
 alias ff='find . -iname'
 
 # Useful for debugging dependency issues
@@ -20,8 +16,17 @@ alias freeze-mvn="mvn -o dependency:list |\
   sed 's/:[a-z]*$//g' |\
   sort -u
 "
+
+###    Docker
+#       ":"
+#     ___:____     |"\/"|
+#   ,'        `.    \  /
+#   |  O        \___/  |
+# ~^~^~^~^~^~^~^~^~^~^~^~^~
+alias d=docker
+alias dp='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Ports}}"'
+alias d-c=docker-compose
+
+### Fun stuff ###
 # Sometimes it's nice for somebody to answer you
 alias wtf="echo 'INDEED!'"
-
-# Stick a uuid on my clipboard
-alias uuid-me="uuid | pbcopy"
