@@ -12,3 +12,6 @@ export PATH=$PATH:/opt/boxen/homebrew/opt/go/libexec/bin
 # Docker
 export DOCKER_VOLUMES='/Users/laithal/docker-share'
 export JIRA_URL='https://greenmangaming.atlassian.net'
+
+# Override the boxen config in favour of docker
+export PGPORT=5432
