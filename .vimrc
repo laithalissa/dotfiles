@@ -232,3 +232,6 @@ au InsertLeave *.json set conceallevel=2
 
 " Nicer higlighting
 hi Visual  guifg=NONE guibg=#411f7f gui=none ctermbg=91
+
+" Disable warning for swap files
+set shortmess+=A
