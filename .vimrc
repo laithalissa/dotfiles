@@ -166,9 +166,8 @@ map <D-/> <leader>c<space>
 set wildmenu
 set wildmode=list:longest,full
 
-" show existing tab with 4 spaces width
+" show existing tab with 2 spaces width
 set tabstop=2
-" when indenting with '>', use 4 spaces width
 set expandtab
 set shiftwidth=2
 set softtabstop=2
@@ -186,7 +185,13 @@ au FileType scala set cc=100
 " Python - set 4 spaces per indent.
 au FileType python set tabstop=4
 au FileType python set shiftwidth=4
+au FileType python set softtabstop=4
 au FileType python set cc=80
+
+" Html gets overridden todo: find out why!
+au FileType html,djangohtml set tabstop=2
+au FileType html,djangohtml set shiftwidth=2
+au FileType html,djangohtml set softtabstop=2
 
 " Golang - syntax highlighting
 let g:go_highlight_functions = 1
