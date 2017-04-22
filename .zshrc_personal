@@ -1,7 +1,3 @@
-# See ~/.zshenv for env var definitions
-# Source the gmg_vars script to get service env vars
-. ~/Code/fabric/gmg_vars.sh
-
 # Load Laithisms
 . "$DOTFILES/.aliases"
 
@@ -17,21 +13,14 @@
 # Docker wrapped tools
 . ~/Code/docker/source-me
 
-# A $JOB_NAMESPACE env var is used to find the directory
-# containing files which need to be sourced for work
-export WORK_NAMESPACE='gmg'
-# Now source the work script to load in work specific scripts
-. "$DOTFILES/.work"
+# See ~/.zshenv for env var definitions
+# Source the gmg_vars script to get service env vars
+. ~/Code/fabric/gmg_vars.sh
 
-export PYTHONPATH=`brew --prefix`/Cellar/python/2.7.3-boxen2
-export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-# Stops annoying dock icons popping up when running mvn stuff
-export MAVEN_OPTS='-Djava.awt.headless=true'
+if [ -f ~/.env_namespace ]; then
+  . ~/.env_namespace
+fi
 
-# AWS keys for scaldoge
-export_aws
-
-# Dockerify the session
-eval "$(docker-machine env default)"
-# `fuck` will attempt to correct the last command
-eval $(thefuck --alias)
+if [ $WORK_NAMESPACE ]; then
+  . "$DOTFILES/.zshrc_work"
+fi
