@@ -10,81 +10,64 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-"> Language support
+" >>> Language support
 Bundle 'derekwyatt/vim-scala'
 Bundle 'solarnz/thrift.vim'
 Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
 
-"> Styling
+" Git changes in gutter
+Plugin 'airblade/vim-gitgutter'
+
+" >>> Linting
+" Highlight trailing whitepsace
+Bundle 'ntpeters/vim-better-whitespace'
+" Flake8
+Plugin 'nvie/vim-flake8'
+
+" >>> Helpful things
+" Closes html/xml tags
+Plugin 'docunext/closetag.vim'
+" Wrap phrases in quotes/parans
+Plugin 'tpope/vim-surround'
+" Fast commenting
+Plugin 'scrooloose/nerdcommenter'
+
+" >>> Look and feel
+" Nicer startscreen
+Plugin 'mhinz/vim-startify'
+" Theme
+Plugin 'joshdick/onedark.vim'
+" Switch between relative and natural numbering more easily
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+" Status line
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 set laststatus=2
 
-" Nicer startscreen
-Plugin 'mhinz/vim-startify'
-
-"Plugin 'altercation/vim-colors-solarized'
-" Git changes in gutter
-Plugin 'airblade/vim-gitgutter'
-
-" Indent guides - I had to turn this off because of performance issues
-"Plugin 'Yggdroot/indentLine'
-
-" Sublime-text theme
-Plugin 'tomasr/molokai'
-" Other colour schemes
-"Plugin 'laithalissa/vim-luna'
-Plugin 'joshdick/onedark.vim'
-
-" Highlight trailing whitepsace
-Bundle 'ntpeters/vim-better-whitespace'
-
-"> Helpful things
-"Closes html/xml tags
-Plugin 'docunext/closetag.vim'
-
-"> Fast commenting
-Plugin 'scrooloose/nerdcommenter'
-"> Menus
+" >>> Editor tools
 Plugin 'scrooloose/nerdtree'
-
-"> Better session saving
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'laithalissa/bclose'
+" >>> Better session saving
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 
-" Multiple cursors, like in sublime text
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-
-"> Experimental
-"  This section is just for things I'm playing with, if I like them I'll sort
-"  them into one of the sections above.
-
-" CtrlP - fuzzy buffers/file menus
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'd11wtq/ctrlp_bdelete.vim'
-
-" Easily split method definitions across lines
-Plugin 'andrewradev/splitjoin.vim'
-
-" PEP8 indenting
-Plugin 'hynek/vim-python-pep8-indent'
-
-" Flake8
-Plugin 'nvie/vim-flake8'
-"Python mode?
-"Plugin 'klen/python-mode'
-" Autoclose the scratch window which opens to show you documentation
-"autocmd CompleteDone * pclose
-
-" Switch between relative and natural numbering more easily
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-
+" >>> Other tweaks
 " Don't jump to the next search when "*" is pressed
 Plugin 'bronson/vim-visual-star-search'
 
-"Experimental
+" >>> Experimental
+"  This section is just for things I'm playing with, if I like them I'll sort
+"  them into one of the sections above.
+" Multiple cursors, like in sublime text
+Plugin 'terryma/vim-multiple-cursors'
+" Easily split method definitions across lines
+Plugin 'andrewradev/splitjoin.vim'
+" PEP8 indenting
+Plugin 'hynek/vim-python-pep8-indent'
+" Delete buffers with ctrlp
+Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'davidbeckingsale/writegood.vim'"
 " Vertically aligning text
 Plugin 'godlygeek/tabular'
@@ -243,3 +226,5 @@ set shortmess+=A
 
 " Highlight as you type the search!
 set incsearch
+" Swap files are more bother than they're worth
+set noswapfile
