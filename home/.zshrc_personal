@@ -6,7 +6,7 @@ include () {
 # Load Laithisms
 include "$DOTFILES/.aliases"
 
-# Nasty fat hobitsis keeps his secret keys here
+# Nasty fat hobbitsis keeps his secret keys here
 include "$DOTFILES/.secrets"
 
 # Colorize maven
@@ -16,14 +16,8 @@ include "$SCRIPTS/colourise-mvn"
 include "$SCRIPTS/functions/source-me"
 
 # Docker wrapped tools
-include ~/Code/docker/source-me
+include "$CODE/docker/source-me"
 
 # This should give us WORK_NAMESPACE
 include ~/.env_namespace
-
-if [ $WORK_NAMESPACE ]; then
-  include "$DOTFILES/.zshrc_work"
-  # See ~/.zshenv for env var definitions
-  # Source the gmg_vars script to get service env vars
-  include ~/Code/fabric/gmg_vars.sh
-fi
+include "$WORK_NAMESPACE/source-me"

@@ -6,3 +6,4 @@ if [ -f "$SCRIPTS/get-paths" ]; then
   export PATH=$PATH:`$SCRIPTS/get-paths`
 fi
 export DOTFILES="$HOME"
+export WORKON_HOME=~/.virtualenvs
