@@ -15,6 +15,7 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'solarnz/thrift.vim'
 Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
+Plugin 'GEverding/vim-hocon'
 
 " Git changes in gutter
 Plugin 'airblade/vim-gitgutter'
@@ -96,6 +97,8 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif
+
+set guifont=Iosevka
 
 " Set the <leader> key to ,
 let mapleader = ","

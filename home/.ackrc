@@ -1,0 +1,20 @@
+#Thrift
+--type-set=thrift:ext:thrift
+
+# Puppet
+--type-set=pp:ext:pp
+# Ruby templates
+--type-set=erb:ext:erb
+
+#Log files
+--type-set=log:ext:log
+# Hocon
+--type-set=conf:ext:conf
+
+# Markdowns
+--type-set=html:ext:html
+# Sass
+--type-set=scss:ext:scss
+# Conf/hocon
+--type-set=conf:ext:conf
+--type-set=hocon:ext:conf

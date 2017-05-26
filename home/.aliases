@@ -30,3 +30,4 @@ alias d-c=docker-compose
 ### Fun stuff ###
 # Sometimes it's nice for somebody to answer you
 alias wtf="echo 'INDEED!'"
+alias fml="echo 'INDEED!'"
