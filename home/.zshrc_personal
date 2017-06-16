@@ -21,3 +21,7 @@ include "$CODE/docker/source-me"
 # This should give us WORK_NAMESPACE
 include ~/.env_namespace
 include "$WORK_NAMESPACE/source-me"
+
+alias git-cheatsheet='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh | grep alias | less'
+
+PATH="$PATH:/Users/laithal/.Pokemon-Terminal"

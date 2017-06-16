@@ -231,3 +231,8 @@ set shortmess+=A
 set incsearch
 " Swap files are more bother than they're worth
 set noswapfile
+
+" Startify customisation
+let g:startify_change_to_dir = 1
+let g:startify_list_order = ['sessions', 'bookmarks', 'sessions']
+let g:startify_bookmarks = split(system("find ~/Code -not -path '*/\.*' -type d -maxdepth 1 -mindepth 1"))

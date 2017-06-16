@@ -53,3 +53,5 @@ fi
 
 # Needs to be here so work-only plugin deps are on the path
 source $ZSH/oh-my-zsh.sh
+
+source ~/.aliases
