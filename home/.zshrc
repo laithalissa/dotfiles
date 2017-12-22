@@ -4,27 +4,19 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME='robbyrussell'
+# Source a file if it exists
+include () {
+  [[ -f "$1" ]] && source "$1"
+}
 
-# Put a theme name in .zshtheme and we'll use it
-if [ -f ~/.zshtheme ] ; then
-  ZSH_THEME=`cat ~/.zshtheme`
-fi
+# ZSH_THEME is sourced from here, so that it encapsulate theme specific config
+include $HOME/.zshtheme
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE='true'
-
-# Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION='true'
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   colored-man-pages
   colorize
@@ -35,23 +27,44 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-# User configuration
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
- export EDITOR='vim'
-else
- export EDITOR='mvim'
-fi
+# Load Laithisms
+include "$DOTFILES/.aliases"
 
-if [ -f ~/scripts/docker-functions ]; then
-  . ~/scripts/docker-functions
-fi
+# Nasty fat hobbitsis keeps his secret keys here
+include "$DOTFILES/.secrets"
 
-if [ -f ~/.zshrc_personal ]; then
-  . ~/.zshrc_personal
-fi
+# Util function
+include "$SCRIPTS/functions/source-me"
+
+# Docker wrapped tools
+include "$CODE/docker/source-me"
+
+# This should give us WORK_NAMESPACE
+include ~/.env_namespace
+include "$HOME/$WORK_NAMESPACE/source-me"
 
 # Needs to be here so work-only plugin deps are on the path
 source $ZSH/oh-my-zsh.sh
+# powerlevel9k's font-awesome sets LC_ALL to '', which breaks perl :/
+export LC_ALL="$LANGUAGE"
 
-source ~/.aliases
+local os=$(os-name)
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  case $os in
+    Linux) export EDITOR='gvim';;
+    Mac)   export EDITOR='mvim';;
+  esac
+fi
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+ export EDITOR='vim'
+fi
+
+###
+# Experimental section, should be sorted before committing
+###
+alias git-cheatsheet='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh | grep alias | less'

@@ -93,12 +93,18 @@ if has("gui_running")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h10
+  elseif has("x11")
+    set guioptions -=m
+    set guioptions -=T
+    set guifont=Hack\ 10
+    set lines=50
+    set columns=100
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
 endif
 
-set guifont=Iosevka
+"set guifont=Iosevka
 
 " Set the <leader> key to ,
 let mapleader = ","
@@ -217,10 +223,6 @@ au FileType javascript set shiftwidth=2
 nnoremap * :keepjumps normal! mi*`i<CR>
 nnoremap # :keepjumps normal! mi#`i<CR>
 
-" Make json pretty when you're not in insert mode
-au InsertEnter *.json set conceallevel=0
-au InsertLeave *.json set conceallevel=2
-
 " Nicer higlighting
 hi Visual  guifg=NONE guibg=#411f7f gui=none ctermbg=91
 
@@ -235,4 +237,20 @@ set noswapfile
 " Startify customisation
 let g:startify_change_to_dir = 1
 let g:startify_list_order = ['sessions', 'bookmarks', 'sessions']
-let g:startify_bookmarks = split(system("find ~/Code -not -path '*/\.*' -type d -maxdepth 1 -mindepth 1"))
+let g:startify_bookmarks = split(system("find $CODE_DIR -not -path '*/\.*' -type d -maxdepth 1 -mindepth 1"))
+
+" Turn off autosave prompt
+let g:session_autosave = 'no'
+" Needed for nerdtree arrows
+set encoding=utf-8
+
+let NERDTreeChDirMode=2
+
+autocmd VimEnter *
+            \   if !argc()
+"            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
+
+set clipboard=unnamedplus
