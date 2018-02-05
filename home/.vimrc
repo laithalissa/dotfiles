@@ -13,12 +13,15 @@ Plugin 'gmarik/Vundle.vim'
 " >>> Language support
 Bundle 'derekwyatt/vim-scala'
 Bundle 'solarnz/thrift.vim'
+Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
 Plugin 'GEverding/vim-hocon'
 
 " Git changes in gutter
 Plugin 'airblade/vim-gitgutter'
+" Tiled window manager
+" Plugin 'spolu/dwm.vim'
 
 " >>> Linting
 " Highlight trailing whitepsace
@@ -151,8 +154,13 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 nmap <leader>bc :Bclose<cr>
 
 " Quick comment with C-q or Cmd-/
-nmap <C-q> <leader>c<space>
+map <C-q> <leader>c<space>
 map <D-/> <leader>c<space>
+
+" Capital w writes
+autocmd VimEnter * noremap :W :w
+" Capital q quits
+cmap :Q :q
 
 " Wildmode menu (tab completion)"
 set wildmenu
@@ -163,6 +171,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set smarttab
 set smartcase
 set mouse=a
 
@@ -246,11 +255,21 @@ set encoding=utf-8
 
 let NERDTreeChDirMode=2
 
-autocmd VimEnter *
-            \   if !argc()
+"autocmd VimEnter *
+"            \   if !argc()
 "            \ |   Startify
-            \ |   NERDTree
-            \ |   wincmd w
-            \ | endif
+"            \ |   NERDTree
+"            \ |   wincmd w
+"            \ | endif
 
 set clipboard=unnamedplus
+" Open nerdtree when no file is specified
+"autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"nnoremap C- "+p
+"nnoremap Ctrl-shift-c "+y
+" Use the system clipboard
+set clipboard=unnamedplus
+
+let g:jsx_ext_required = 0
