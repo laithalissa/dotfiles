@@ -1,0 +1,10 @@
+[Unit]
+Description=Wallpaper changer
+
+[Timer]
+OnUnitActiveSec=15m
+#OnCalander=*-*-* *:0/15:00
+Unit=change-wallpaper.service
+
+[Install]
+WantedBy=multi-user.target
