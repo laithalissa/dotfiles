@@ -1,0 +1,7 @@
+[Unit]
+Description=Random wallpaper with feh
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/bin/bash -c '/usr/bin/feh -r --randomize --recursive --bg-center /home/laith/Pictures/wallpapers'
