@@ -23,10 +23,22 @@ plugins=(
   colorize
   docker
   docker-compose
+  emoji
   git
-  virtualenvwrapper
+ # virtualenvwrapper # Disable while playing with conda
   zsh-syntax-highlighting
+  zshmarks
 )
+
+# This should give us WORK_NAMESPACE
+include ~/.env_namespace
+include "$HOME/$WORK_NAMESPACE/source-me"
+
+# Needs to be here so work-only plugin deps are on the path, yet personal
+# functions/aliases override oh-my-zsh plugins
+source $ZSH/oh-my-zsh.sh
+# powerlevel9k's font-awesome sets LC_ALL to '', which breaks perl :/
+export LC_ALL="$LANGUAGE"
 
 # Load Laithisms
 include "$DOTFILES/.aliases"
@@ -39,15 +51,6 @@ include "$SCRIPTS/functions/source-me"
 
 # Docker wrapped tools
 include "$CODE/docker/source-me"
-
-# This should give us WORK_NAMESPACE
-include ~/.env_namespace
-include "$HOME/$WORK_NAMESPACE/source-me"
-
-# Needs to be here so work-only plugin deps are on the path
-source $ZSH/oh-my-zsh.sh
-# powerlevel9k's font-awesome sets LC_ALL to '', which breaks perl :/
-export LC_ALL="$LANGUAGE"
 
 local os=$(os-name)
 
