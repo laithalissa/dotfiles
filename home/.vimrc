@@ -38,8 +38,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 
 " >>> Look and feel
-" Nicer startscreen
-Plugin 'mhinz/vim-startify'
 " Theme
 Plugin 'joshdick/onedark.vim'
 " Switch between relative and natural numbering more easily
@@ -99,7 +97,7 @@ if has("gui_running")
   elseif has("x11")
     set guioptions -=m
     set guioptions -=T
-    set guifont=Hack\ 10
+    set guifont=Hack\ 8
     set lines=50
     set columns=100
   elseif has("gui_win32")
@@ -146,7 +144,7 @@ set hlsearch
 set ignorecase
 
 " Toggle nerdtree with ,ne
-nmap <leader>ne :NERDTreeToggle<cr>
+nmap <leader>, :NERDTreeToggle<cr>
 " Redraw the screen without search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
@@ -243,11 +241,6 @@ set incsearch
 " Swap files are more bother than they're worth
 set noswapfile
 
-" Startify customisation
-let g:startify_change_to_dir = 1
-let g:startify_list_order = ['sessions', 'bookmarks', 'sessions']
-let g:startify_bookmarks = split(system("find $CODE_DIR -not -path '*/\.*' -type d -maxdepth 1 -mindepth 1"))
-
 " Turn off autosave prompt
 let g:session_autosave = 'no'
 " Needed for nerdtree arrows
@@ -255,12 +248,11 @@ set encoding=utf-8
 
 let NERDTreeChDirMode=2
 
-"autocmd VimEnter *
-"            \   if !argc()
-"            \ |   Startify
-"            \ |   NERDTree
-"            \ |   wincmd w
-"            \ | endif
+autocmd VimEnter *
+            \   if !argc()
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
 
 set clipboard=unnamedplus
 " Open nerdtree when no file is specified
