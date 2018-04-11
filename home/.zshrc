@@ -9,6 +9,7 @@ include () {
   [[ -f "$1" ]] && source "$1"
 }
 
+export TERM="xterm-256color"
 # ZSH_THEME is sourced from here, so that it encapsulate theme specific config
 include $HOME/.zshtheme
 
