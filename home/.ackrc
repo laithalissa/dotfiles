@@ -1,12 +1,14 @@
-#Thrift
+# Thrift
 --type-set=thrift:ext:thrift
+# JSX - react
+--type-set=jsx:ext:jsx
 
 # Puppet
 --type-set=pp:ext:pp
 # Ruby templates
 --type-set=erb:ext:erb
 
-#Log files
+# Log files
 --type-set=log:ext:log
 # Hocon
 --type-set=conf:ext:conf
