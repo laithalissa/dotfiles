@@ -5,6 +5,16 @@ alias tnew='tmux new -s'
 # Attach to a tmux session
 alias tatt="tmux attach -t"
 
+if [[ $(which open) != 0 ]]; then
+  if [[ $(which xdg-open) != 0 ]]; then
+    alias open=xdg-open
+  fi
+fi
+
+### Clipboard cli on linux
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
+
 ### Utils ###
 # Find a file within the current directory
 alias ff='find . -iname'
@@ -26,6 +36,11 @@ alias freeze-mvn="mvn -o dependency:list |\
 alias d=docker
 alias dp='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Ports}}"'
 alias d-c=docker-compose
+alias dcdul='d-c down && d-c up -d && d-c logs -f'
+alias dcupd='d-c up -d'
+
+# zshmarks - Fast navigation
+alias j=jump
 
 ### Fun stuff ###
 # Sometimes it's nice for somebody to answer you
