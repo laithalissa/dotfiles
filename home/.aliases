@@ -5,7 +5,7 @@ alias tnew='tmux new -s'
 # Attach to a tmux session
 alias tatt="tmux attach -t"
 
-if [[ $(which open) != 0 ]]; then
+if [[ $(which open 2>/dev/null) != 0 ]]; then
   if [[ $(which xdg-open) != 0 ]]; then
     alias open=xdg-open
   fi
