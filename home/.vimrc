@@ -58,6 +58,7 @@ Plugin 'xolox/vim-session'
 " >>> Other tweaks
 " Don't jump to the next search when "*" is pressed
 Plugin 'bronson/vim-visual-star-search'
+Bundle 'ageldama/vim-ttfzoom'
 
 " >>> Experimental
 "  This section is just for things I'm playing with, if I like them I'll sort
