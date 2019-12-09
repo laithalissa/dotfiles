@@ -20,3 +20,5 @@
 # Conf/hocon
 --type-set=conf:ext:conf
 --type-set=hocon:ext:conf
+# Terraform
+--type-set=terraform:ext:tf
