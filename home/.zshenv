@@ -24,4 +24,4 @@ export YELLOW=$(echo -en '\033[00;33m')
 export WHITE=$(echo -en '\033[01;37m')
 export BOLD=$(echo -en '\e[31m')
 export RESET_COLOUR=$(echo -en '\033[0m')
-export PATH="/home/laith/opt/miniconda3/bin:$PATH"
+
