@@ -250,11 +250,11 @@ set encoding=utf-8
 
 let NERDTreeChDirMode=2
 
-autocmd VimEnter *
-            \   if !argc()
-            \ |   NERDTree
-            \ |   wincmd w
-            \ | endif
+"autocmd VimEnter *
+"            \   if !argc()
+"            \ |   NERDTree
+"            \ |   wincmd w
+"            \ | endif
 
 set clipboard=unnamedplus
 " Open nerdtree when no file is specified
