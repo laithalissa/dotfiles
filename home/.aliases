@@ -15,6 +15,7 @@ fi
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
 
+alias vim=vimx
 ### Utils ###
 # Find a file within the current directory
 alias ff='find . -iname'
