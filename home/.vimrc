@@ -98,7 +98,8 @@ if has("gui_running")
   elseif has("x11")
     set guioptions -=m
     set guioptions -=T
-    set guifont=Hack\ 8
+"    set guifont=Hack\ 8
+    set guifont=Monospace\ Bold\ 12
     set lines=50
     set columns=100
   elseif has("gui_win32")
