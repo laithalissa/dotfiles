@@ -5,13 +5,14 @@ export SCRIPTS="$HOME/scripts"
 export USER_BINARIES="$HOME/bin"
 export PATH=$PATH:$SCRIPTS:$USER_BINARIES
 [[ -f "$SCRIPTS/get-paths" ]] && export PATH=$PATH:`$SCRIPTS/get-paths`
-export DOTFILES="$CODE_DIR/dotfiles/home"
+export PATH="$PATH:$HOME/npm/bin"
+export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
+#export DOTFILES="$CODE_DIR/dotfiles/home"
+export DOTFILES="$HOME/.homesick/repos/dotfiles/home"
 export DOCKER_SHARE="/docker-share"
 
 # Virtual environments
 export WORKON_HOME=~/.virtualenvs
-## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-source $HOME/.rvm/scripts/rvm
 ## Nodenv
 #export PATH="$HOME/.nodenv/bin:$PATH"
 #eval "$(nodenv init -)"
