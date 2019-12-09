@@ -28,6 +28,9 @@ alias freeze-mvn="mvn -o dependency:list |\
   sort -u
 "
 
+# Git
+alias grhom='git reset --hard origin/master'
+
 ###    Docker
 #       ":"
 #     ___:____     |"\/"|
