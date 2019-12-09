@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     python
      markdown
      javascript
      ;; ----------------------------------------------------------------
@@ -327,7 +328,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (git-gutter eyebrowse mmm-mode markdown-toc markdown-mode gh-md web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode terraform-mode hcl-mode spaceline s powerline smeargle popwin orgit org-plus-contrib neotree magit-gitflow magit-popup hl-todo helm-gitignore request golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fill-column-indicator fancy-battery evil-magit magit transient git-commit with-editor dash evil-visualstar evil undo-tree which-key use-package pcre2el macrostep hydra lv helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx flx helm-descbinds helm-ag exec-path-from-shell evil-escape goto-chg elisp-slime-nav diminish bind-map bind-key auto-compile packed ace-window ace-jump-helm-line helm avy helm-core popup async))))
+    (yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic f git-gutter eyebrowse mmm-mode markdown-toc markdown-mode gh-md web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode terraform-mode hcl-mode spaceline s powerline smeargle popwin orgit org-plus-contrib neotree magit-gitflow magit-popup hl-todo helm-gitignore request golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fill-column-indicator fancy-battery evil-magit magit transient git-commit with-editor dash evil-visualstar evil undo-tree which-key use-package pcre2el macrostep hydra lv helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx flx helm-descbinds helm-ag exec-path-from-shell evil-escape goto-chg elisp-slime-nav diminish bind-map bind-key auto-compile packed ace-window ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
