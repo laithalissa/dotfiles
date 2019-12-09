@@ -52,6 +52,18 @@ include "$SCRIPTS/functions/source-me"
 # Docker wrapped tools
 include "$CODE/docker/source-me"
 
+
+os-name() {
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    echo 'Linux'
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo 'Mac'
+  elif [[ "$OSTYPE" == "cygwin" ]]; then
+    echo 'Windows' # POSIX compatibility layer and Linux environment emulation for Windows
+  else
+    echo 'Unknown'
+  fi
+}
 local os=$(os-name)
 
 if [[ -n $SSH_CONNECTION ]]; then
@@ -72,3 +84,34 @@ fi
 # Experimental section, should be sorted before committing
 ###
 alias git-cheatsheet='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh | grep alias | less'
+
+vmware-mount-path() {
+  host_path="${1?:Usage: vmware-mount <host_path> <guest_path>}"
+  guest_path="${2?:Usage: vmware-mount <host_path> <guest_path>}"
+  /usr/bin/vmhgfs-fuse .host:$host_path $guest_path -o subtype=vmhgfs-fuse,allow_other -o uid=1000 -o gid=1000 -o umask=0033
+}
+
+vmware-mount() {
+  echo 'No mounts declared'
+#  vmware-mount-path code /home/la/code
+}
+
+
+include $HOME/.zshrc_personal
+
+# Turn off clippy-esque correction suggestions
+unsetopt correct_all
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/la/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/la/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/la/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/la/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/la/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /home/la/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
